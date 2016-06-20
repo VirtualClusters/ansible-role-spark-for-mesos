@@ -1,0 +1,14 @@
+---
+# tasks file for ansible-role-spark-for-mesos
+
+- name: download spark 
+  get_url: url={{ spark_url }} dest="/tmp/spark.tgz"
+
+- name: unarchive spark.tgz
+  unarchive: src="/tmp/spark.tgz" dest={{ spark_dest }}
+
+- name: symlink to spark home
+  file: src=/opt/spark-{{ spark_version }} dest={{ spark_home }} state=link
+
+- name: spark configuration (spark-env.sh)
+  template: src=spark-env.sh.j2 dest={{ spark_home }}/conf/spark-env.sh
