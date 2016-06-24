@@ -11,7 +11,7 @@ spark_home: "{{ spark_dest }}/spark"
 
 # mesos
 prefix_mesos: /usr/local
-# The Master URLs for Mesos are in the form mesos://host:5050 for a single-master Mesos cluster, or mesos://zk://host:2181 for a multi-master Mesos cluster using ZooKeeper.
-mesos_master_host: mesos://zk://{% for host in groups['masters'] %}{{ hostvars[host]['ansible_eth0']['ipv4']['address'] }}:2181{% if not loop.last %},{% endif %}{% endfor %}
+# The Master URLs for Mesos are in the form mesos://host:5050 for a single-master Mesos cluster, or mesos://zk://host:2181/mesos for a multi-master Mesos cluster using ZooKeeper.
+mesos_master_host: mesos://zk://{% for host in groups['masters'] %}{{ hostvars[host]['ansible_eth0']['ipv4']['address'] }}:2181{% if not loop.last %},{% endif %}{% endfor %}/mesos
 # mesos_master_host: mesos://zk://{{ zk_hosts }} # from group_vars
 mesos_master_port: 5050

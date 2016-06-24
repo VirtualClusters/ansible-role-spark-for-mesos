@@ -9,3 +9,4 @@
 
 - name: spark configuration (spark-env.sh)
   template: src=spark-env.sh.j2 dest={{ spark_home }}/conf/spark-env.sh
+  tags: spark_conf
