@@ -2,7 +2,7 @@
 # defaults file for ansible-role-spark-for-mesos
 
 # 2.0.0 (July 26 2016)
-spark_version: 2.0.0 
+spark_version: 2.0.2 
 spark_distribution_type: "-bin-hadoop2.7" # put '' if source installation
 spark_filename: "spark-{{ spark_version}}{{ spark_distribution_type}}" # excluding extension
 spark_url: https://dist.apache.org/repos/dist/release/spark/spark-{{ spark_version }}/{{ spark_filename }}.tgz
